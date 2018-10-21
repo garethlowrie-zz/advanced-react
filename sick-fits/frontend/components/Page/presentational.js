@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Header from '../components/Header';
-import Meta from './Meta';
+import Header from '../Header/presentational';
+import Meta from '../Meta/presentational';
 import styled from 'styled-components';
 
 const MyButton = styled.button`
