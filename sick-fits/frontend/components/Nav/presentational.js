@@ -5,7 +5,7 @@ import NavStyles from 'components/styles/NavStyles';
 const Nav = () => {
     return (
         <NavStyles>
-             <Link href="/shop">
+            <Link href="/shop">
                 <a>Shop</a>
             </Link>
             <Link href="/sell">
