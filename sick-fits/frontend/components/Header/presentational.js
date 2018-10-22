@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav from '../Nav/presentational';
+import Nav from 'components/Nav/presentational';
 import Link from 'next/link';
 import styled from 'styled-components';
 import Router from 'next/router';

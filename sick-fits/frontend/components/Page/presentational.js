@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Header from '../Header/presentational';
-import Meta from '../Meta/presentational';
+import Header from 'components/Header/presentational';
+import Meta from 'components/Meta/presentational';
 import styled, { ThemeProvider, injectGlobal } from 'styled-components';
 
 const theme = {

@@ -71,7 +71,10 @@
               "ssr": true,
               "displayName": true
             }
-          ]
+          ],
+          ["module-resolver", {
+            "root": ["./"]
+          }]
         ]
       },
       "production": {

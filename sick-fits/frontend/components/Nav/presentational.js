@@ -1,25 +1,25 @@
 import React from 'react';
 import Link from 'next/link';
-import NavStyles from '../styles/NavStyles';
+import NavStyles from 'components/styles/NavStyles';
 
 const Nav = () => {
     return (
         <NavStyles>
-             <Link href="/items">
-                <a>Items</a>
+             <Link href="/shop">
+                <a>Shop</a>
             </Link>
             <Link href="/sell">
                 <a>Sell</a>
-            </Link>  
+            </Link>
             <Link href="/signup">
                 <a>Signup</a>
-            </Link>  
+            </Link>
             <Link href="/orders">
                 <a>Orders</a>
-            </Link>  
+            </Link>
             <Link href="/me">
                 <a>Account</a>
-            </Link>  
+            </Link>
         </NavStyles>
     );
 };
