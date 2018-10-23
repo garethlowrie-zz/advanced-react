@@ -1,7 +1,7 @@
 export default (amount) => {
   const options = {
     style: 'currency',
-    currency: 'USD',
+    currency: 'GBP',
     minimumFractionDigits: 2,
   };
 
@@ -10,6 +10,6 @@ export default (amount) => {
     options.minimumFractionDigits = 0;
   }
 
-  const formatter = new Intl.NumberFormat('en-US', options);
+  const formatter = new Intl.NumberFormat('en-GB', options);
   return formatter.format(amount / 100);
 }
