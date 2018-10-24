@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import Items from 'components/Items/presentational';
+import SingleItem from 'components/SingleItem/container';
 
-const Item = () => {
+const Item = ({
+    id
+}) => {
     return (
-        <Items />
+        <SingleItem id={id} />
     )
 }
 
