@@ -5,29 +5,44 @@ export default ({ name = 'mutate' } = {}) => WrappedComponent => class extends R
 
     state = { loading: false, error: null, result: null };
 
-    handleMutation(...options) {
+    componentDidMount() {
+        this.mounted = true;
+    };
+
+    componentWillUnmount() {
+        this.mounted = false;
+    };
+
+    async handleMutation(...options) {
         this.setState({
             loading: true,
             error: null,
             result: null,
         });
-        return this.props[name](...options)
-            .then((result) => {
+
+        try {
+            const result = await this.props[name](...options)
+
+            if (this.mounted) {
                 this.setState({
                     loading: false,
                     error: null,
                     result: result,
-                })
-                return result;
-            })
-            .catch((err) => {
+                });
+            }
+            return result;
+        }
+        catch (err) {
+            if (this.mounted) {
                 this.setState({
                     loading: false,
                     error: err,
                     result: null
                 });
-                return err;
-            })
+            }
+
+            return err;
+        }
     }
 
     render() {

@@ -4,6 +4,7 @@ import Title from 'components/styles/Title';
 import ItemStyles from 'components/styles/ItemStyles';
 import PriceTag from 'components/styles/PriceTag';
 import formatMoney from 'utils/formatMoney';
+import DeleteItem from 'components/DeleteItem/container';
 
 const Item = ({
 	item
@@ -34,7 +35,7 @@ const Item = ({
 					<a>Edit</a>
 				</Link>
 				<button>Add To Cart</button>
-				<button>Delete</button>
+				<DeleteItem id={id}>Delete this item</DeleteItem>
 			</div>
 		</ItemStyles>
 	);
