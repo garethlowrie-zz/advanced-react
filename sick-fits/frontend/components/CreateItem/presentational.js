@@ -5,17 +5,22 @@ const CreateItem = ({
 	title,
 	description,
 	image,
-	largeImage,
 	price,
 	createItemLoading,
 	createItemError,
 	onChange,
-	onFormSubmit
+	onFormSubmit,
+	onImageUpload
 }) => {
 	return (
 		<Form onSubmit={onFormSubmit}>
 			<ErrorMessage error={createItemError} />
 			<fieldset disabled={createItemLoading} aria-busy={createItemLoading}>
+				<label htmlFor="file">
+					Image
+					<input type="file" id="file" name="file" placeholder="Upload an image" onChange={onImageUpload} required />
+					{image && <img src={image} width="200" />}
+				</label>
 				<label htmlFor="title">
 					Title
 					<input type="text" id="title" name="title" placeholder="Title" value={title} onChange={onChange} required />

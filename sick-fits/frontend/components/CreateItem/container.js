@@ -49,7 +49,7 @@ export default compose(
 	}),
 	withStateMutation({ name: 'createItem' }),
 	withHandlers({
-		onChange: ({ setTitle, setPrice, setDescription, setImage, setLargeImage }) => (event) => {
+		onChange: ({ setTitle, setPrice, setDescription }) => (event) => {
 			const { name, type, value } = event.target;
 			const val = type === 'number' ? parseFloat(value) : value;
 
@@ -60,14 +60,26 @@ export default compose(
 				case 'description':
 					setDescription(event.target.value);
 					break;
-				case 'image':
-					setImage(event.target.value);
-					setLargeImage(event.target.value);
-					break;
 				case 'price':
 					setPrice(val);
 					break;
 			}
+		},
+		onImageUpload: ({ setImage, setLargeImage }) => async (event) => {
+			const files = event.target.files;
+			const data = new FormData();
+			data.append('file', files[0]);
+			data.append('upload_preset', 'sickfits');
+
+			const res = await fetch('https://api.cloudinary.com/v1_1/garethlowrie/image/upload', {
+				method: 'POST',
+				body: data
+			});
+
+			const file = await res.json(); // Convert response into json
+			setImage(file.secure_url);
+			setLargeImage(file.eager[0].secure_url);
+
 		},
 
 		onFormSubmit: ({ createItem, title, description, price, image, largeImage }) => async (e) => {
