@@ -13,7 +13,6 @@ const mutations = {
         //Take a copy of the updates
         const updates = { ...args };
         delete updates.id;
-        console.log(updates, args.id)
         // Run the update method
         return context.db.mutation.updateItem(
             {
@@ -24,6 +23,14 @@ const mutations = {
             },
             info
         );
+    },
+
+    async deleteItem(parent, args, context, info) {
+        //Take a copy of the updates
+        const where = { id: args.id };
+        const item = await context.db.query.item({ where }, `{ id title }`);
+        // TODO: Check permissions
+        return context.db.mutation.deleteItem({ where }, info);
     }
 };
 
