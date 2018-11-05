@@ -3,7 +3,7 @@ const SingleItem = ({
 }) => {
 	console.log(data)
 	return (
-		<div></div>
+		<div>Single Item</div>
 	);
 }
 

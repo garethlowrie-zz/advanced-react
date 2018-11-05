@@ -3,9 +3,7 @@ import CreateItem from 'components/CreateItem/container';
 
 const Sell = () => {
     return (
-        <CreateItem>
-            Sell Page
-        </CreateItem>
+        <CreateItem />
     )
 }
 
